@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var x = 10
+        var ret = x ++ // 等同于x += 1  // x = x + 1
+        // 先赋值在计算, 先把X复制给ret在自加
+        var ret1 = ++ x  // 先运算在在赋值
+        console.log(ret)
+        console.log(ret1)
+
+        // 逻辑运算符
+        console.log(2>1 && 2 === "2")
+        console.log(2>1 || 2 === "2")
+
+        // 三目运算符
+        var a = 100
+        var b = 20
+        console.log(a>b?a:b)  // 比较a和b大小, 谁大返回谁, if判断简写
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function foo() {   // 函数声明
+            // 函数体
+            console.log("hello yuan")
+        }
+        foo()   // 函数调用
+
+        // 函数参数调用
+        function bar(x, y) {
+            console.log(x, y)
+        }
+        bar(1, 2, 3)    // 可以超过参数定义, 但是只取前几个
+        bar(1)    // 没有的参数会用undefind补齐
+
+        function stu_info(name, gander = "男") {   // 默认参数
+            console.log(" 姓名 " + name + " 性别: " + gander)
+        }
+        stu_info("yuan")
+        stu_info("rain", "女")
+
+        function add() {
+            console.log(arguments)  // 函数内置
+            var ret = 0
+            for(var i in arguments){   // arguments, 返回所有传参
+                ret += arguments[i]
+            }
+            return ret
+        }
+        var ret = add(1, 2, 3, 4)
+        console.log(ret);
+
+        (function (x, y){ // 匿名函数
+            console.log("匿名函数"+"   "+x +"   "+y)
+        })(1, 2)
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

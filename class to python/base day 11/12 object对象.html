@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var obj = new Object()
+        obj.name = "yuan"
+        obj.age = 23
+        console.log(obj.name)
+        console.log(obj.age)
+
+        var obj2 = {
+            name: "rain",
+            age: "22"
+        }
+        console.log(obj2.name)
+        console.log(obj2.age)
+        console.log(obj2["name"]) // 在属性不明确的情况下, 用中括号
+
+        for(var k in obj2){
+            console.log(obj[k])
+        }
+
+        var ret = JSON.stringify(obj2)
+        console.log(ret)  // json序列化, object转成json
+        var ret1 = JSON.parse(ret)
+        console.log(ret1)  // json反序列化, json转成object
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
