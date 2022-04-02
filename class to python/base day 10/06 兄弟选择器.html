@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1 + .c2{ /* 毗邻兄弟: 选择的标签必须要紧紧挨着才能生效, .c1 + .c2 标签c2会变红*/
+            color: red;
+        }
+        .c1 ~ .c4{  /* 普通兄弟: 从c1往下找c4, c4变红, 只能往下找*/
+            color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="item">i1</div>
+<div class="item c1">i2</div>
+<div class="item c2">i3</div>
+<div class="item c3">i4</div>
+<div class="item c4">i5</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .head{
+            width: 100%;
+            /*height: 100px;*/
+            border: 1px solid red;
+        }
+        .head .head1{
+            width: 400px;
+            height: 80px;
+            background-color: green;
+            float: left;
+        }
+        .head .head2{
+            width: 500px;
+            height: 100px;
+            background-color: blue;
+            float: right;
+        }
+        .content{
+            width: 100%;
+            height: 500px;
+            background-color: lightpink;
+            clear: both;
+        }
+        .head:after{
+            display: block;
+            clear: both;
+            content: "";
+        }
+    </style>
+
+</head>
+<body>
+<div class="head">
+    <div class="head1"></div>
+    <div class="head2"></div>
+</div>
+<div class="content"></div>
+
+</body>
+</html>

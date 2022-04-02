@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{  /*标签名选择器, 缺点是所有p标签都会变*/
+            color: red;
+        }
+        #i2{  /*id选择器, 确定是只能对应一个标签*/
+            color: blue;
+        }
+        .c1{   /*class 选择器, 应用最广泛, 推荐使用*/
+            color: blueviolet;
+        }
+        .c2{   /*class 选择器, 应用最广泛, 推荐使用*/
+            color: red;
+        }
+        .c3{   /*class 选择器, 应用最广泛, 推荐使用*/
+            color: blue;
+        }
+        .c4{
+            background-color: olivedrab;
+            font-style: italic;
+        }
+        *{ /*通配符选择器, 会选择所有标签, 会在组合选择器中配合使用*/
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<p>p1</p>
+<div id="i2" >p2</div>
+<!--相同的部分可以继承, 不同的部分的可以区分开-->
+<p class="c1 c4">p3</p>
+<p class="c2 c4">p4</p>
+<p class="c3 c4">p5</p>
+<span >p6</span>
+
+</body>
+</html>
