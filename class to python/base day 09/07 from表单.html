@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [type = "text"]{
+            width:  200px;
+            height: 20px;
+        }
+        [type = "checkbox"],[type = "radio"]{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h3> 注册页面</h3>
+
+<!--action: 向哪个服务器发送数据 method: 发送方式post或者get enctype: 发送数据格式-->
+<form action="http://127.0.0.1:8888" method="post" enctype="application/x-www-form-urlencoded">
+
+<!--    input: 文本输入框,内联标签 -->
+<!--    text: 明文输入框    name: 对应输入的内容键值  value: 默认值-->
+    <p>
+<!--        label标签, 用for关联标签, 点击后面的姓名时候会自动跳转到关联标签-->
+        <label for="name">姓名</label>
+        <input id="name" type="text" name="user" value=""></p>
+<!--    password: 隐藏输入框-->
+    <p>密码 <input type="password" name="pwd"></p>
+<!--    data: 日期类型-->
+    <p>生日 <input type="date" name="birth" value="1996-10-01"></p>
+    <p>爱好:
+<!--        checkbox: 复选框, 选择之后直接走默认value     checked="checked" 复选框默认选择-->
+        篮球<input type="checkbox" name="hobby" value="lanqiu" checked="checked">
+        看书<input type="checkbox" name="hobby" value="kanshu" checked="checked">
+        打游戏<input type="checkbox" name="hobby" value="dayouxi">
+    </p>
+    <p>性别:
+<!--        radio: 单选框, 只能选择一个, 但是也需要一个默认值-->
+       男<input type="radio" name="gender" value="male" >
+       女<input type="radio" name="gender" value="notmale">
+       其他<input type="radio" name="gender" value="qita">
+    </p>
+<!--    submit: 提交按钮, 点击后会有默认事件, 浏览器会把前面输入打包发送-->
+    <p><input type="submit"></p>
+<!--    file: 上传文件, 如果是上传文件, 表单enctype属性必须为:multipart/form-data -->
+    <p><input type="file" ></p>
+<!--select: 下拉标签-->
+    <p>籍贯
+        <select name="province" >
+<!--            selected="selected" 等于如果不选, 下拉框的默认值-->
+            <option value="a" selected="selected">a</option>
+            <option value="b">b</option>
+        </select>
+    </p>
+<!--    textarea标签: 文本框标签-->
+    <p> <textarea name="jianjie" id="" cols="30" rows="20"></textarea> </p>
+</form>
+
+</body>
+</html>
