@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // window.alert("磁盘与满")  // 弹窗
+        var ret = window.confirm("是否继续")  // 弹窗2个选项
+        console.log(ret)
+
+        var ret = window.prompt("请输入你的ID") // 让客户输入, 用ret收到返回值
+
+        // 定时器方法
+        var ID = setInterval(function (){
+            console.log("ok")
+        },1000)  // 每隔1000毫秒执行前面的函数
+        // 取消定时器
+        console.log(ID)
+        clearInterval(ID);
+
+        var ID2 = setTimeout(function (){
+            console.log("ok2")
+        },1000)  // 1秒之后执行前面的函数
+        // 取消定时器
+        console.log(ID2)
+        clearTimeout(ID2);
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

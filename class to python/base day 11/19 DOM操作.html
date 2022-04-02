@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active{
+            background-color: lightblue;
+            color: orange;
+            font-size: 32px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div id="i1" class="c1">yuan</div>
+
+
+<script>
+    dom = document.querySelector("#i1")
+
+    dom.onclick = function () {
+        //  (1) 文本操作
+        // this.innerHTML = "rain"     // innerHTML 对文本进行操作, 这个在点击yuan时会变成rain
+        // console.log(this.innerHTML)
+
+        // (2) css操作
+        this.style.color = "red"       // 点击文本的时候, 让文本变成红色
+
+        // (3) class操作
+        this.classList.add("active")     // 点击的时候在标签class标签中增加一个值, 让他产生变化
+
+        // (4) 属性操作
+        this.setAttribute("yuan","xxxx")       // 点击的时候增加一个属性yuan=xxx
+        console.log(this.getAttribute("id"))   // 点击的时候打印id属性值
+
+        // ()
+
+    }
+
+
+</script>
+
+</body>
+</html>

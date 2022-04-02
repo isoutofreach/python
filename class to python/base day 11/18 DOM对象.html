@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div id="i1" class="c1">yuan</div>
+<div class="c1">rain</div>
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+
+<script>
+    // 查询标签
+    dom = document.querySelector("#i1")  // 查出带有id=i1的标签, 就返回一个
+    doms = document.querySelectorAll(".c1") // 查出带有class=c1的标签, 返回多个
+    doms_li = document.querySelectorAll("ul li")
+
+    // 绑定事件
+    dom.onclick = function (){
+        // alert(123)
+        console.log(this) // 在绑定事件中this代指当前触发事件的标签
+    }
+
+    for(var i=0;i<doms_li.length;i++ ){
+        doms_li[i].onclick = function (){
+            alert(123)
+        }
+    }
+
+</script>
+
+</body>
+</html>

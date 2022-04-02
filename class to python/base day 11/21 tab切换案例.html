@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .tab{
+            width: 60%;
+            height: 300px;
+            margin: 100px auto;
+        }
+        .tab .title{
+            background-color: #f7f7f7;
+            border: 1px solid #eee;
+            border-bottom: 1px solid #e4393c;
+            height: 90px;
+            line-height: 90px;
+        }
+        .tab .title .item{
+            width: 100px;
+            font-size: 14px;
+            float: left;
+            text-align: center;
+        }
+        .hide{
+            display: none;
+        }
+        .active{
+            background-color: #e4393c;
+            color: #fff;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <div class="title">
+        <div index="0" class="item active">商品介绍</div>
+        <div index="1" class="item">评价</div>
+        <div index="2" class="item">规格包装</div>
+        <div index="3" class="item">售后</div>
+    </div>
+    <div class="content">
+        <div class="item">商品介绍内容.....</div>
+        <div class="item hide">评价内容.....</div>
+        <div class="item hide" >规格包装内容....</div>
+        <div class="item hide">售后内容....</div>
+    </div>
+</div>
+
+
+<script>
+    var itemsTitle = document.querySelectorAll(".tab .title .item")
+    var itemsContent = document.querySelectorAll(".tab .content .item")
+
+    for(var i=0;i < itemsTitle.length; i++){
+        itemsTitle[i].onclick = function (){
+            // 点击标签激活CSS
+            for (var j=0;j < itemsTitle.length; j++){
+                itemsTitle[j].classList.remove("active")
+            }
+            this.classList.add("active")
+            var index = this.getAttribute("index")
+            for (var k=0;k < itemsContent.length; k++){
+                itemsContent[k].classList.add("hide")
+            }
+            itemsContent[index].classList.remove("hide");
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

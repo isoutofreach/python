@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #i1{
+            color: red;
+        }
+    </style>
+    <script>
+        function show() {
+            // 查找ID标签
+            var dom = document.querySelector("#i1")  // 可以用css方式来查找标签
+            console.log(dom) //dom对象
+
+            // 将当前时间字符串赋值给dom的value的属性
+            var now = new Date().toLocaleString()
+            dom.setAttribute("value",now)
+        }
+        var ID
+
+        function start(){   // 计时器
+            if (ID === undefined){   // 如果ID为undefind才会执行show函数, 让ID变的唯一
+                show()
+                ID = setInterval(function (){
+                    show()    // 每秒执行一次时间
+                },1000)
+            }else {
+                window.alert("别乱点")
+            }
+        }
+
+        function end(){   // 关闭计时器
+            clearInterval(ID)
+            ID = undefined  // 将ID 初始化
+        }
+    </script>
+</head>
+<body>
+<!--绑定事件   onclick = "" -->
+<input id="i1" type="text" value="">  <input type="button" value="start" onclick="start()">
+<input type="button" value="end" onclick="end()">
+</body>
+</html>

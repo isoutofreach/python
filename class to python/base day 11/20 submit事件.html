@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active{
+            background-color: lightblue;
+            color: orange;
+            font-size: 32px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<form action="" class="form">
+    用户名:<input type="text" name="user" id="i1">
+    密码：<input type="text" name="pwd" id="i2">
+    <input type="submit">
+</form>
+
+
+<script>
+    form = document.querySelector(".form")   // 查找form标签
+    var user = document.querySelector("#i1")
+    var pwd = document.querySelector("#i2")
+    form.onsubmit = function () {      // 点击提交时, 触发
+        console.log(user.value,pwd.value)
+        // 对提交的内容做一个审核
+        if (user.value.length>4){
+            console.log("pass")
+            return false
+        }
+    }
+
+</script>
+
+</body>
+</html>
