@@ -1,0 +1,1 @@
+{1001: {'name': 'yuan', 'score': {'chinese': 80, 'english': 90, 'math': 100}}, 1002: {'name': 'yinz', 'score': {'chinese': 100, 'english': 100, 'math': 100}}}
