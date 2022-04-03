@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue3.js"></script>
+    <style>
+        .c1{
+            color: red;
+        }
+        .c2{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+<dic id="app">
+    <p @dblclick="foo('rain')">{{msg}}</p>
+</dic>
+
+
+<script>
+    // 数据驱动页面
+    var vm = Vue.createApp({
+        data(){
+            return{
+                msg: "yuan",
+                books2:[
+                    {title:"西游记",price:"199"},
+                    {title:"红楼梦",price:"99"},
+                    {title:"水浒传",price:"299"},
+                    {title:"红楼梦",price:"399"}]
+            }
+        },
+        methods:{
+            foo(name){
+                this.msg = name;
+            }
+        }
+    }).mount("#app")
+
+
+</script>
+
+</body>
+</html>
