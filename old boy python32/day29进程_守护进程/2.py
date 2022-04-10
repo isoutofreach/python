@@ -64,3 +64,4 @@ class MyProcess(Process):
 if __name__ == "__main__":
     p = MyProcess("我是参数")
     p.start()
+
