@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [type="text"]{  /*只有type="text"属性会变红 */
+            border: solid 1px red;
+        }
+        div[yuan="xxx"]{  /*符合div标签且属性是yuan=xxx才会变蓝*/
+            color: blue;
+        }
+        [class~="c1"]{  /* ~= ： 以空格作为分隔符, 只要有一个属性是c1就选中 */
+            color: olive;
+        }
+        [href$="png"]{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+账号<input type="text">
+密码<input type="password">
+<div yuan="xxx">111111</div>
+<p yuan="xxx">2222</p>
+<div class="c1 c2">DIV</div>
+<div class="img">
+    <a href="http://www.aaaaa.com/1.png">png</a>
+    <a href="http://www.bbbbb.com/2.jpg">jpg</a>
+    <a href="http://www.ccccc.com/2.gif">gif</a>
+</div>
+
+</body>
+</html>
