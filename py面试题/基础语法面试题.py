@@ -70,3 +70,76 @@ print(("").join(s1))
 
 #15. 什么是深浅拷贝
 
+#16 请合并下面两个字典 a = {“A”: 1, “B”: 2},b = {“C”: 3, “D”: 4}
+a = {"A": 1, "B": 2}
+b = {"C": 3, "D": 4}
+a.update(b)
+print(a)
+
+#17 python的三元运算表达
+a = 11
+b = 20
+ret = a if a > b else b
+print(ret)
+print("a是偶数" if a % 2 == 0 else "a是奇数")
+
+#18. 统计一段字符串中每个字符出现的次数，比如abcaabccab
+a = "abcaabccab"
+print(a.count("a"))
+
+dic = {}
+for i in a:
+		dic[i] = dic.get(i,0)+1
+print(dic)
+
+s = "abcaabccab"
+result = {x: s.count(x) for x in s}
+print(result)
+
+#19. 字典和列表的查找速度哪个更快?
+#列表查询是遍历方式，时间复杂度是O(n), 字典查询是hash映射 时间复杂度是O(1);当数据量小的时候切片查询比map快，但是数据量大的时候字典的优势就体现出来了
+
+#20. 如何实现[‘1’, ‘2’, ‘3’]变成[1, 2, 3]
+l = ['1','2','3']
+l2 = [ int(i) for i in l]
+print(l,l2)
+
+#21 获取1-100中所有偶数平方列表
+print([ q*q for q in range(1,101) if q % 2 == 0])
+
+#22 1,2,3,4,5 能组成多少个互不相同切无重复的元素
+li = [1,2,3,4,5]
+lq = [int(str(q)+str(w)+str(e)) for q in li for w in li for e in li if q != w and q != e and e != w]
+print(len(lq))
+
+# 23 如何交换字典{"A":1,"B":2}的键和值
+dict_1 = {"A":1,"B":2}
+dict_2 = {v:k for k,v in dict_1.items()}
+print(dict_2)
+
+# 24 将所有的key值变为大写
+dict_1 = {"a":1, "b":2, "c":3, "d":4}
+dict_2 = { k.upper():v for k,v in dict_1.items()}
+print(dict_2)
+
+# 25 pass语句的作用是什么
+# 占位符,不执行任何操作
+
+# 26 如何在一个函数内部修改全局变量
+i = 100
+def num(q):
+		global i
+		i += q
+		return i
+print(num(145),i)
+
+# 27. 如何修改一个非局部非全局变量
+def foo():
+		x = 200
+		def bar():
+				nonlocal x
+				x = x+1
+		bar()
+		print(x)
+
+foo()
