@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Vue3.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>四大名著</h3>
+    <ul>
+        <li v-for="(b,i) in books">{{i+1}}.{{b}}</li>
+    </ul>
+<!--    方法1-->
+    <table border="1">
+        <tr>
+            <td>序号</td>
+            <td>书籍名称</td>
+            <td>书籍价格</td>
+        </tr>
+        <tr v-for="(b,i) in books2">
+            <template v-if="b.price>200">
+                <td>{{i}}</td>
+                <td>{{b.title}}</td>
+                <td>{{b.price}}</td>
+            </template>
+        </tr>
+    </table>
+<!--    方法2   官方推荐-->
+    <table border="1">
+        <tr>
+            <td>序号</td>
+            <td>书籍名称</td>
+            <td>书籍价格</td>
+        </tr>
+        <tr v-for="(b,i) in filterBooks">
+                <td>{{i+1}}</td>
+                <td>{{b.title}}</td>
+                <td>{{b.price}}</td>
+        </tr>
+    </table>
+</div>
+
+
+<script>
+    // 数据驱动页面
+    var vm = Vue.createApp({
+        data() {
+            return {
+                books:["西游记","水浒传","三国演义","红楼梦","金瓶梅"],
+                books2:[{title:"西游记",price:199},
+                    {title:"三国演义",price:299},
+                    {title:"红楼梦",price:399},
+                    {title:"金瓶梅",price:499}
+                ]
+            }
+        },
+        methods:{
+        },
+        computed:{
+            filterBooks(){
+                return this.books2.filter(function (item){
+                    if (item.price > 200){
+                        return item
+                    }
+                })
+            }
+        }
+    }).mount("#app")
+</script>
+</body>
+</html>

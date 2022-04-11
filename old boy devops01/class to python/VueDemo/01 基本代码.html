@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Vue3.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>消息: {{msg}}</p>
+    <p>网站: <span v-html="link"></span></p>
+    <input type="text" v-model="data">
+    <p><img height="300" width="400" :src="url" alt=""><p>
+    <p>
+    <a :href="link2">{{site}}</a>
+    网站名称<input type="text" v-model="site">
+    url地址<input type="text" v-model="link2">
+    </p>
+    <p>年龄: {{age+1}}</p>
+<!--    展示虚岁, 应该age+1, 可以直接放js表达式-->
+    <p>{{is_login?"登录成功":"登录错误"}}</p>
+<!--    三元表达式-->
+    <p>{{citys.split(" ").reverse().join(",")}}</p>
+<!--    将传递过来的参数翻转-->
+
+</div>
+
+
+<script>
+    // 数据驱动页面
+    var vm = Vue.createApp({
+        data() {
+            return {
+                msg: "hello world",
+                link: "<a href='https://www.baidu.com/'>百度</a>",
+                data: "123",
+                url:"https://img1.baidu.com/it/u=1875739781,4152007440&fm=253&fmt=auto&app=120&f=JPEG?w=1024&h=576",
+                site: "百度",
+                link2: "https://www.baidu.com/",
+                age: 23,
+                is_login: false,
+                citys:"北京 上海 深圳 广州"
+            }
+        },
+    }).mount("#app")
+</script>
+</body>
+</html>
