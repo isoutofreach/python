@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Vue3.js"></script>
+    <style>
+        .pass{
+            outline-color: green;
+        }
+        .fail{
+            outline-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <p>{{num}}</p>
+    <p><input type="text" v-model="num"></p>
+
+    <p>
+        <input type="password" :class="tips" v-model="password">
+    </p>
+</div>
+<script>
+    vm = Vue.createApp({
+        data() {
+            return {
+                num: 100,
+                password:"",
+                tips: "fail"       // 默认为红色
+            }
+        },
+        watch:{
+            password: function (newVal,oldVal){    //接收更改之后的值和更改之前的值
+                if(newVal.length>5){
+                    // 边框变绿
+                    console.log("ok")
+                    this.tips = "pass"
+                }else {
+                    // 边框变红
+                    console.log("not ok")
+                }
+            }
+        }
+    }).mount('.tab')
+
+
+</script>
+
+</body>
+</html>
