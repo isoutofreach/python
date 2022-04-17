@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!--    <img alt="Vue logo" src="../assets/logo.png">-->
+<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+    <Nav @getCity="callBack"></Nav>
+    <p>选中的城市: {{city}}</p>
+
+    <Forecast :choose_city="city"/>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Nav from '@/components/Nav.vue'
+import Forecast from '@/components/Forecast.vue'
 
 export default {
   name: 'HomeView',
+  data(){
+    return{
+      city: ""
+    }
+  },
   components: {
-    HelloWorld
+    Nav,
+    Forecast
+  },
+  methods:{
+    callBack(choose_city){
+        this.city = choose_city
+    },
   }
 }
 </script>
