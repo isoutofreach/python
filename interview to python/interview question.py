@@ -143,3 +143,5 @@ def foo():
 		print(x)
 
 foo()
+
+# 28. 
