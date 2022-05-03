@@ -19,3 +19,7 @@ def result(request):
     else:
         result = "user or passwd is false"
     return render(request, "result.html", {"result": result})
+
+
+def get_ncov(request):
+    return render(request, "ncov.html")
