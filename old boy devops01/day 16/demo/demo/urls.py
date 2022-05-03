@@ -15,18 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.shortcuts import HttpResponse
-
-
-def get_timer(request):
-    import datetime
-    now = datetime.datetime.now().strftime("%Y-%m-%d %X")
-
-    return HttpResponse(now)
-
+from app03.views import get_timer, login, result
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('timer', get_timer),
+    path('login', login),
+    path('verification', result)
 ]
-
