@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+<title>书籍</title>
+{% endblock %}
+
+
+{% block content %}
+
+    {% if age > 18 %}
+
+        <ul>
+            <li>金瓶梅</li>
+            <li>水浒</li>
+        </ul>
+
+    {% else %}
+
+        <ul>
+
+            {% for book in books %}
+
+                {% if forloop.first %}
+                    <li style="background-color: red">  {{ book }}</li>
+                {% else %}
+                    <li>  {{ book }}</li>
+                {% endif %}
+
+
+            {% endfor %}
+
+        </ul>
+
+
+
+    {% endif %}
+
+
+    <p>{{ books }}</p>
+
+{% endblock %}

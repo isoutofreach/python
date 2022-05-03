@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>疫情信息展示</h1>
+        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point
+            to create something more unique by building on or modifying it.</p>
+    </div>
+
+
+    <table class="table">
+        <tr>
+            <th> 城市名称</th>
+            <th> 新增疑似</th>
+            <th> 新增确诊</th>
+            <th> 累计确诊</th>
+            <th> 累计死亡</th>
+        </tr>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.properties.name }}</td>
+                <td>{{ item.properties.新增疑似 }}</td>
+                <td>{{ item.properties.新增确诊 }}</td>
+                <td>{{ item.properties.累计确诊 }}</td>
+                <td>{{ item.properties.累计死亡 }}</td>
+
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}
+
+
+{% block title %}
+<title>2019ncov</title>
+{% endblock %}
