@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('timer', get_timer),
     path('', index),
-    path('login', login)
+    path('login', login),
 ]
