@@ -1,4 +1,4 @@
-"""demo URL Configuration
+"""DjangoDemo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app03.views import get_timer, login, result, get_ncov
+from app01.views import get_timer, index, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('timer', get_timer),
-    path('login', login),
-    path('verification', result),
-    path('2019ncov', get_ncov)
+    path('', index),
+    path('login', login)
 ]

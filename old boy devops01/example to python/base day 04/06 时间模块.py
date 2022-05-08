@@ -25,7 +25,7 @@
 # dt = datetime.date(2012, 12, 12)
 # print(dt.year)
 # print(dt.month)
-# print(dt.day)
+# print(dt.base day 16)
 # print(dt)  # 默认格式
 # ret = dt.strftime("%Y/%m/%d")
 # print(ret)
@@ -40,7 +40,7 @@
 # dt = datetime.datetime(2012, 11, 10, 9, 8, 7)
 # print(dt.year)
 # print(dt.month)
-# print(dt.day)
+# print(dt.base day 16)
 # print(dt.hour)
 # print(dt)
 # print(dt.strftime("%Y/%m/%d %H-%M-%S"))

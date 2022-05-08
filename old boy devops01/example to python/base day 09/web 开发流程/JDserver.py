@@ -14,7 +14,7 @@ while 1:
     print("server is waitting......")
     conn, addr = sock.accept()
     data = conn.recv(1024)
-    with open("E:\\代码保存\\py\\base day 09\\web 开发流程\\index.html", "rb") as f:
+    with open("E:\\代码保存\\py\\base base day 16 09\\web 开发流程\\index.html", "rb") as f:
         conn.send(b"HTTP/1.1 200 ok \r\n\r\n" + f.read())
     print(data.decode())
 sock.close()

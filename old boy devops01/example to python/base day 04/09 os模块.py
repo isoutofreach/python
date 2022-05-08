@@ -1,7 +1,7 @@
 import os
 
 print(os.getcwd())  # 获取当前目录,python基本的存放目录
-os.chdir("E:\代码保存\py\\base day 04")  # 调整工作目录
+os.chdir("E:\代码保存\py\\base base day 16 04")  # 调整工作目录
 print(os.listdir())  # 打印当前工作目录所有文件
 # os.pardir 显示父目录
 os.makedirs("wk01/xx", exist_ok=True)  # 当前工作目录下,创建多层文件夹
