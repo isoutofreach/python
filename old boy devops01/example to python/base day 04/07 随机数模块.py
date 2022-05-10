@@ -14,16 +14,14 @@ print(l)
 print(ord("a"))  # 将字符转换成ASCII
 print(chr(97))  # 将ASCII转换成字符
 
-def get_rendom_str():
-    ret = []
-    for i in range(5):
-        random_num = str(random.randint(0, 9))
-        random_lower = chr(random.randint(97, 122))
-        # 因为小写的a-z ASCII 是97到122
-        random_upper = random_lower.upper()
-        # 因为大写的A-Z ASCII 是65到190
-        random_char = random.choice([random_upper, random_num, random_lower])
-        ret.append(random_char)
-    return "".join(ret)
 
-print(get_rendom_str())
+ret = []
+for i in range(5):
+    random_num = str(random.randint(0, 9))
+    random_lower = chr(random.randint(97, 122))
+    random_upper = random_lower.upper()
+    random_char = random.choice([random_upper, random_num, random_lower])
+    print(type(random_char))
+    ret.append(random_char)
+
+print("".join(ret))
