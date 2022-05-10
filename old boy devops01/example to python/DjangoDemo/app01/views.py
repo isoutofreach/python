@@ -56,7 +56,12 @@ def muban(request):
     now = datetime.datetime.now()
     fileSize = 123123123123
 
+    import requests
+    data = requests.get("https://2019ncov.chinacdc.cn/JKZX/yq_20220401.json")
+    # print(data.json()['features'][0]['properties'])
+    yiqing = data.json()["features"]
+    # print(yiqing)
 
-    return render(request, "muban.html", {"name": name, "books": books, "info": info, "stus": stus, "now": now, "filesize":fileSize})
+    return render(request, "muban.html", {"name": name, "books": books, "info": info, "stus": stus, "now": now, "filesize":fileSize, "yiqinglist": yiqing})
 
 

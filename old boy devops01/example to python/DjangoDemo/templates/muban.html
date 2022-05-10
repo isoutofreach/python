@@ -3,36 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h2>模板语法</h2>
+{#<h2>模板语法</h2>#}
+{##}
+{#<h3>变量渲染之深度查询 .</h3>#}
+{#<p>姓名: {{ name }} </p>#}
+{#<p>四大名著: {{ books }}</p>#}
+{#<p>四大名著第三本: {{ books.2 }}</p>#}
+{#<p>个人信息: {{ info }}</p>#}
+{#<p>个人信息 姓名: {{ info.name }}</p>#}
+{#<p>个人信息 年龄: {{ info.age }}</p>#}
+{#<p>stus中第三个学生的姓名: {{ stus.2.name }}</p>#}
+{##}
+{##}
+{#<h3>过滤器 .</h3>#}
+{#<p>当前时间: {{ now|date:"Y-m-d" }}</p>#}
+{#<p>文件大小: {{ filesize|filesizeformat }}</p>#}
+{##}
+{#<h3>for标签</h3>#}
+{##}
+{#{% for book in books %}#}
+{#<ul>#}
+{#<li>{{ book }}</li>#}
+{#</ul>#}
+{#{% endfor %}#}
 
-<h3>变量渲染之深度查询 .</h3>
-<p>姓名: {{ name }} </p>
-<p>四大名著: {{ books }}</p>
-<p>四大名著第三本: {{ books.2 }}</p>
-<p>个人信息: {{ info }}</p>
-<p>个人信息 姓名: {{ info.name }}</p>
-<p>个人信息 年龄: {{ info.age }}</p>
-<p>stus中第三个学生的姓名: {{ stus.2.name }}</p>
+<div class="row">
+ <div class="col-md-8 col-md-offset-2">
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>省份</th>
+        <th>新增感染人数</th>
+        <th>疑似感染人数</th>
+        <th>确诊感染人数</th>
+    </tr>
+    {% for item in yiqinglist %}
 
+        <tr>
+            <th>{{ item.properties.name }}</th>
+            <th>{{ item.properties.新增疑似 }}</th>
+            <th>{{ item.properties.累计确诊 }}</th>
+            <th>{{ item.properties.新增确诊 }}</th>
+        </tr>
+    {% endfor %}
 
-<h3>过滤器 .</h3>
-<p>当前时间: {{ now|date:"Y-m-d" }}</p>
-<p>文件大小: {{ filesize|filesizeformat }}</p>
-
-<h3>for标签</h3>
-
-{% for book in books %}
-<ul>
-<li>{{ book }}</li>
-</ul>
-{% endfor %}
-
-
-
-
+</table>
+</div>
+</div>
 
 </body>
 </html>
