@@ -6,7 +6,7 @@ import datetime
 
 
 def get_timer(request):
-    now = datetime.datetime.now().strftime("%Y-%m-%d %X")
+    now = datetime.datetime.now()
     print(request.method)
     print(request.path)
     print(request.get_full_path())
@@ -62,6 +62,20 @@ def muban(request):
     yiqing = data.json()["features"]
     # print(yiqing)
 
-    return render(request, "muban.html", {"name": name, "books": books, "info": info, "stus": stus, "now": now, "filesize":fileSize, "yiqinglist": yiqing})
+    return render(request, "muban.html",
+                  {"name": name, "books": books, "info": info, "stus": stus, "now": now, "filesize": fileSize,
+                   "yiqinglist": yiqing})
 
 
+def books(request):
+    age = 188
+    books = ["AA", "BB", "CC", "DD"]
+    return render(request, "books.html", {"books": books, "age": age})
+
+
+def get_ncov(request):
+    import requests
+    res = requests.get("https://2019ncov.chinacdc.cn/JKZX/yq_20220401.json")
+    data = res.json()["features"]
+
+    return render(request, "ncov.html", {"data":data})

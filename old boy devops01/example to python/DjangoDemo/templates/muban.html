@@ -27,33 +27,36 @@
 {##}
 {#{% for book in books %}#}
 {#<ul>#}
-{#<li>{{ book }}</li>#}
+{#<li>{{ forloop.counter }}  {{ book }}</li>#}
+{#    forloop.counter : 计数器,循环一次计数一次#}
+{#    forloop.counter0: 从0开始计数#}
+{#    forloop.first   : 判断是否是第一个循环的,返回true和false#}
 {#</ul>#}
 {#{% endfor %}#}
 
-<div class="row">
- <div class="col-md-8 col-md-offset-2">
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>省份</th>
-        <th>新增感染人数</th>
-        <th>疑似感染人数</th>
-        <th>确诊感染人数</th>
-    </tr>
-    {% for item in yiqinglist %}
-
-
-        <tr>
-            <th>{{ item.properties.name }}</th>
-            <th>{{ item.properties.新增疑似 }}</th>
-            <th>{{ item.properties.累计确诊 }}</th>
-            <th>{{ item.properties.新增确诊 }}</th>
-        </tr>
-    {% endfor %}
-
-</table>
-</div>
-</div>
+{#<div class="row">#}
+{# <div class="col-md-8 col-md-offset-2">#}
+{#<table class="table table-bordered table-striped">#}
+{#    <tr>#}
+{#        <th>省份</th>#}
+{#        <th>新增感染人数</th>#}
+{#        <th>疑似感染人数</th>#}
+{#        <th>确诊感染人数</th>#}
+{#    </tr>#}
+{#    {% for item in yiqinglist %}#}
+{##}
+{##}
+{#        <tr>#}
+{#            <th>{{ item.properties.name }}</th>#}
+{#            <th>{{ item.properties.新增疑似 }}</th>#}
+{#            <th>{{ item.properties.累计确诊 }}</th>#}
+{#            <th>{{ item.properties.新增确诊 }}</th>#}
+{#        </tr>#}
+{#    {% endfor %}#}
+{##}
+{#</table>#}
+{#</div>#}
+{#</div>#}
 
 </body>
 </html>

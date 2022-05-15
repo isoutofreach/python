@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .now{
-            color: red;
-        }
-        h3{
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
 
-<h3>当前时间: <span class="now">{{ showtime }}</span>  </h3>
+{% block title %}
+<title>时间展示</title>
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>时间信息展示</h1>
+      </div>
+
+<h3>当前时间: <span class="now">{{ showtime|date:"Y-m-d H:i:s" }}</span>  </h3>
+
+{% endblock %}

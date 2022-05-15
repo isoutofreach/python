@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>书籍展示</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+   <h1>书籍信息展示</h1>
+</div>
+
+
+{% for book in books %}
+<li>{{ book }}</li>
+{#    forloop.counter : 计数器,循环一次计数一次#}
+{#    forloop.counter0: 从0开始计数#}
+{#    forloop.first   : 判断是否是第一个循环的,返回true和false#}
+{% endfor %}
+
+
+{% if age < 18 %}
+    {% for book in books %}
+    <li>{{ book }}</li>
+    {% endfor %}
+{% else %}
+    <ul>
+        <li>金瓶梅</li>
+        <li>水浒传</li>
+    </ul>
+{% endif %}
+
+
+{% endblock %}
+
+
+
+
+
