@@ -1,20 +1,23 @@
-from django.test import TestCase
+import pymysql
 
-# Create your tests here.
+db = pymysql.connect(
+    host='localhost',
+    user='root',
+    password='123456',
+    database="s32",
+    port=3306,
+    charset='utf8'
+)
 
-import requests
+cursor = db.cursor()
 
-data = requests.get("https://2019ncov.chinacdc.cn/JKZX/yq_20220401.json")
-# print(data.json()['features'][0]['properties'])
-data1 = data.json()["features"]
-print()
+exe = cursor.execute("show databases")
+print(exe)
 
-for item in data1:
-    # print(item.get("properties"))
-    name = item.get("properties").get("name")
-    a = item.get("properties").get("新增疑似")
-    b = item.get("properties").get("累计确诊")
-    c = item.get("properties").get("新增确诊")
-    print(name, a, b, c)
+result = cursor.fetchall()
 
+print(result)
 
+db.commit()
+cursor.close()
+db.close()

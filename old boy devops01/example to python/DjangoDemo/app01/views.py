@@ -78,4 +78,12 @@ def get_ncov(request):
     res = requests.get("https://2019ncov.chinacdc.cn/JKZX/yq_20220401.json")
     data = res.json()["features"]
 
-    return render(request, "ncov.html", {"data":data})
+    return render(request, "ncov.html", {"data": data})
+
+
+def articleByYear(request, year):
+    return HttpResponse(year + "aticale文章列表")
+
+
+def articleByMonth(request, year, month):
+    return HttpResponse(f"{year}年{month}月的文章")

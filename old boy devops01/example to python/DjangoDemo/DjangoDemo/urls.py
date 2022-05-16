@@ -14,15 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from app01.views import get_timer, index, login, muban, books, get_ncov
+from django.urls import path, re_path, include
+from app01.views import get_timer, index, articleByYear, articleByMonth
 
 urlpatterns = [
+    # re_path('^article/\d{4}$', article),     # 正则匹配
+    re_path('^article/(\d{4})$', articleByYear),  # 分组传递参数
+    re_path('^article/(\d{4})/(\d{1,2})$', articleByMonth),  # 多分组传递参数
+    re_path('^article/(?P<year>\d{4})/(?P<month>\d{1,2})$', articleByMonth),  # 有名分组传递参数,将位置传参改成了关键字传参
     path('admin/', admin.site.urls),
-    path('timer', get_timer),
+    # path('timer', get_timer),
     path('', index),
-    path('login/', login),
-    path("muban/", muban),
-    path("books/", books),
-    path("2019ncov", get_ncov)
+    path('app01/', include("app01.urls"))
+    # path('login/', login),
+    # path("muban/", muban),
+    # path("books/", books),
+    # path("2019ncov", get_ncov)
 ]
