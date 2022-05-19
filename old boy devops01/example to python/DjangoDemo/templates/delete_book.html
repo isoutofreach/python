@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="jumbotron">您正在删除的书籍是: {{ book.title }}   价格为: {{ book.price }}</p>
+<form action="" method="post">
+    <input type="submit" value="确认删除吗？" class="btn danger">
+</form>
+
+
+{% endblock %}
+
+

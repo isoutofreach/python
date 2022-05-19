@@ -25,9 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('timer', get_timer),
     path('', index),
-    path('app01/', include("app01.urls"))
+    path('app01/', include("app01.urls")),
     # path('login/', login),
     # path("muban/", muban),
     # path("books/", books),
     # path("2019ncov", get_ncov)
+    path("book/", include("book.urls")),
 ]

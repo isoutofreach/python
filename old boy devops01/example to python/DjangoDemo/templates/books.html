@@ -5,29 +5,44 @@
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-   <h1>书籍信息展示</h1>
-</div>
+    <p>
+        <a href="/book/add_book" class="btn btn-primary">添加书籍</a>
+    </p>
+<table class="table">
+    <tr>
+        <th>序号</th>
+        <th>书籍名称</th>
+        <th>书籍价格</th>
+        <th>出版日期</th>
+        <th>删除</th>
+    </tr>
+    <tr>
+        {% for book in book_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.pub_date|date:"Y-m-d" }}</td>
+            <td><a href="/book/delete_book/{{ book.id }}">删除</a></td>
+
+        </tr>
+        {% endfor %}
+        
+    </tr>
 
 
-{% for book in books %}
-<li>{{ book }}</li>
-{#    forloop.counter : 计数器,循环一次计数一次#}
-{#    forloop.counter0: 从0开始计数#}
-{#    forloop.first   : 判断是否是第一个循环的,返回true和false#}
-{% endfor %}
-
-
-{% if age < 18 %}
-    {% for book in books %}
-    <li>{{ book }}</li>
-    {% endfor %}
-{% else %}
-    <ul>
-        <li>金瓶梅</li>
-        <li>水浒传</li>
-    </ul>
-{% endif %}
+</table>
+{#    <script>#}
+{#        doms = document.querySelectorAll(".del_btn");#}
+{#        for (var i = 0;i<doms.length;i++){#}
+{#            doms[i].onclick = function (){#}
+{#                var ret = confirm("确认删除吗？ ")#}
+{#                if(!ret){#}
+{#                    return false#}
+{#                }#}
+{#            }#}
+{#        }#}
+{#    </script>#}
 
 
 {% endblock %}
