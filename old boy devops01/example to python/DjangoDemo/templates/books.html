@@ -6,7 +6,7 @@
 
 {% block content %}
     <p>
-        <a href="/book/add_book" class="btn btn-primary">添加书籍</a>
+        <a href="{% url 'add_book' %}" class="btn btn-primary">添加书籍</a>
     </p>
 <table class="table">
     <tr>
@@ -14,6 +14,7 @@
         <th>书籍名称</th>
         <th>书籍价格</th>
         <th>出版日期</th>
+        <th>更新</th>
         <th>删除</th>
     </tr>
     <tr>
@@ -23,6 +24,7 @@
             <td>{{ book.title }}</td>
             <td>{{ book.price }}</td>
             <td>{{ book.pub_date|date:"Y-m-d" }}</td>
+            <td><a href="/book/edit/{{ book.id }}">编辑</a></td>
             <td><a href="/book/delete_book/{{ book.id }}">删除</a></td>
 
         </tr>

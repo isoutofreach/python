@@ -31,4 +31,5 @@ urlpatterns = [
     # path("books/", books),
     # path("2019ncov", get_ncov)
     path("book/", include("book.urls")),
+    path("book01/", include("book01.urls")),
 ]
