@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p><a href="/book01/add" class="btn btn-primary">添加书籍</a></p>
+
+    <table class="table">
+        <tr>
+            <th>序号</th>
+            <th>名称</th>
+            <th>价格</th>
+            <th>出版日期</th>
+            <th>出版社</th>
+            <th>作者</th>
+        </tr>
+
+        {% for book in book_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.price }}</td>
+                <td>{{ book.pub_date|date:"Y-m-d" }}</td>
+                <td>{{ book.publish.name }}</td>
+                <td>
+                    {% if book.authors.all %}
+                        {% for author in book.authors.all %}
+                            <button class="btn">{{ author.name }}</button>
+                        {% endfor %}
+                    {% else %}
+                        <p>暂时没有作者</p>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+
+
+    </table>
+
+
+
+{% endblock %}
