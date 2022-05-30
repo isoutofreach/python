@@ -28,12 +28,33 @@ def add_book(request):
         authors_list = Author.objects.all()
         return render(request, "book01_add_book.html", {"publish_list": publish_list, "authors_list": authors_list})
     else:
-        data = request.POST.dict()
+
         authors_id_list = request.POST.getlist("authors_id_list")
+        data = request.POST.dict()
         data.pop("authors_id_list")
         new_book = Book.objects.create(**data)
 
         # 绑定多对多关系
         new_book.authors.add(*authors_id_list)
 
+        return redirect("/book01/book")
+
+
+def edit_book(request, edit_id):
+    if request.method == "GET":
+        # 获取正在编辑的数据对象
+        edit_book = Book.objects.get(pk=edit_id)
+        publish_list = Publish.objects.all()
+        authors_list = Author.objects.all()
+        return render(request, "book01_edit_book.html",
+                      {"edit_book": edit_book, "publish_list": publish_list, "authors_list": authors_list})
+    else:
+        # 编辑提交的数据
+        authors_id_list = request.POST.getlist("authors_id_list")
+        print(authors_id_list)
+        data = request.POST.dict()
+        data.pop("authors_id_list")
+        Book.objects.filter(pk=edit_id).update(**data)
+        edit_book = Book.objects.get(pk=edit_id)
+        edit_book.authors.set(authors_id_list)
         return redirect("/book01/book")
