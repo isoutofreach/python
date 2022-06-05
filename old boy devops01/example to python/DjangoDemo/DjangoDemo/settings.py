@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app01.apps.App01Config',
     'book.apps.BookConfig',
-    'book01.apps.Book01Config'
+    'book01.apps.Book01Config',
+    'cookie'
 ]
 
 MIDDLEWARE = [

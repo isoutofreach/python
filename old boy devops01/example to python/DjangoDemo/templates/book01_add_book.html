@@ -4,8 +4,33 @@
         <form action="" method="post">
         <div class="form-group">
             <label for="">书籍名称</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" id="title">
         </div>
+        <span class="err"></span>
+        <script>
+            $("#title").blur(function(){
+                $.ajax({
+                    url:"/book01/auth_title/",
+                    type:"get",
+                    data:{
+                        "title": $('#title').val()
+                    },
+                    success:function (res){
+                        res = JSON.parse(res);
+                        console.log(res,typeof(res));
+                        if (res.is_exist){
+                            $(".err").html(res.msg).css("color","red")
+                        }else{
+                            $(".err").html("")
+                        }
+                    }
+                })
+            })
+
+
+
+        </script>
+
         <div class="form-group">
             <label for="">书籍价格</label>
             <input type="text" class="form-control" name="price">

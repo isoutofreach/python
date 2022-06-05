@@ -3,10 +3,35 @@
 {% block content %}
     <p>
         <a href="/book01/add" class="btn btn-primary">添加书籍</a>
-        <form action="">
-            <input type="text" placeholder="搜索">
-        </form>
+        <input type="text" class="num1"> + <input type="text" class="num2"> = <input type="text" class="num3"> <button class="cal">cal</button>
+         <script>
+            $(".cal").click(function () {
+                $.ajax({
+                    url:"/book01/cal/",
+                    data:{
+                        "num1":$(".num1").val(),
+                        "num2":$(".num2").val(),
+                    },
+                    success:function (res){
+                        $(".num3").val(res.ret)
+                    }
+                })
+            })
+         </script>
+
     </p>
+
+
+
+    <form action="/book01/book/">
+        {% if book_kw  %}
+            <input type="text" placeholder={{ book_kw }} name="keyword">
+            <input type="submit">
+        {% else %}
+            <input type="text" placeholder="按书籍名称搜索" name="keyword">
+            <input type="submit">
+        {% endif %}
+    </form>
 
     <table class="table">
         <tr>
@@ -41,7 +66,44 @@
 
 
     </table>
-
+<nav aria-label="Page navigation" class="pull-right">
+  <ul class="pagination">
+    {% if has_previous %}
+        <li>
+          <a href="/book01/book/?page={{ current_page|add:-1 }}" aria-label="Next">
+              <span aria-hidden="true">上一页</span>
+          </a>
+        <li>
+    {% else %}
+        <li class="disabled">
+           <a  href="" aria-label="Next">
+              <span aria-hidden="true">上一页</span>
+           </a>
+         <li>
+     {% endif %}
+    {% for i in paginator.page_range %}
+        {% if current_page == i %}
+            <li class="active"><a href="/book01/book/?page={{ i }}">{{ i }}</a></li>
+        {% else %}
+            <li><a href="/book01/book/?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+    {% if has_next %}
+        <li>
+          <a href="/book01/book/?page={{ current_page|add:+1 }}" aria-label="Next">
+              <span aria-hidden="true">下一页</span>
+          </a>
+        <li>
+    {% else %}
+        <li class="disabled">
+           <a  href="" aria-label="Next">
+              <span aria-hidden="true">下一页</span>
+           </a>
+         <li>
+     {% endif %}
+  </ul>
+</nav>
 
 
 {% endblock %}
+

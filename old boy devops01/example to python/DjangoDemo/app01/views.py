@@ -6,18 +6,24 @@ import datetime
 
 
 def get_timer(request):
+
     now = datetime.datetime.now()
-    print(request.method)
-    print(request.path)
-    print(request.get_full_path())
-    print(request.META)
-    print(request.GET)
-    print(request.POST)
-    user = request.POST.get("user")
-    print(user)
-    hobby = request.POST.getlist("hobby")
-    print(hobby)
-    return render(request, "timer.html", {"showtime": now})
+    # print(request.method)
+    # print(request.path)
+    # print(request.get_full_path())
+    # print(request.META)
+    # print(request.GET)
+    # print(request.POST)
+    # user = request.POST.get("user")
+    # print(user)
+    # hobby = request.POST.getlist("hobby")
+    # print(hobby)
+    if request.COOKIES.get("isLogin") == "True":
+        username = request.COOKIES.get("username")
+        print(username)
+        return render(request, "timer.html", {"showtime": now, "username": username})
+    else:
+        return  redirect("/login")
 
 
 def index(request):
